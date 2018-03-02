@@ -1,18 +1,14 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
-	"context"
 	"os"
 	"os/signal"
-	"time"
 	"syscall"
+	"time"
 )
-
-func PongHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("pongpongpong"))
-}
 
 func init() {
 	initRender()
@@ -21,13 +17,17 @@ func init() {
 func main() {
 	//Create a mux for routing incoming requests
 	mux := http.NewServeMux()
-	mux.HandleFunc("/ping", PongHandler)
 	mux.HandleFunc("/payment_page", PaymentPageHandler)
+	mux.HandleFunc("/ajax/payment_page", AjaxPaymentPageHandler)
 
 	css := http.FileServer(http.Dir("files/css"))
 	js := http.FileServer(http.Dir("files/js"))
-  	mux.Handle("/css/", http.StripPrefix("/css/", css))
-  	mux.Handle("/js/", http.StripPrefix("/js/", js))
+	mux.Handle("/css/", http.StripPrefix("/css/", css))
+	mux.Handle("/js/", http.StripPrefix("/js/", js))
+
+	/************************************************
+		JUST FORGET ALL OF BELOW THIS LINE
+	*************************************************/
 
 	//Create server to serve all incoming request with registered mux
 	server := &http.Server{

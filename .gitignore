@@ -1,23 +1,10 @@
 # Golang gb (getgb.io)
-bin/scrooge
 pkg/
 logs/
 vendor
 
 # Binary
-/scrooge
-/flow
-cmd/scrooge-cron/autochecker/autochecker
-cmd/scrooge-cron/expire/expire
-cmd/scrooge-cron/scrooge-cron
-/autochecker
-/expire
-/scrooge-cron
-
-# React npm
-react/payment/node_modules
-react/payment/coverage
-react/payment/build
+/frontend
 
 # Test coverage output
 *.out

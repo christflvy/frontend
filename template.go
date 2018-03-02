@@ -3,9 +3,9 @@ package main
 import (
 	"html/template"
 
-	"strings"
 	"bytes"
 	"strconv"
+	"strings"
 )
 
 var renderEngine *template.Template

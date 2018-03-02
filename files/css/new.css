@@ -1,0 +1,7 @@
+.get-code {
+    text-decoration: underline;
+    color: rgba(66, 181, 73, 1);
+    cursor: pointer;
+    border: none;
+    background: none;
+}

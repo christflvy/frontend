@@ -1,0 +1,78 @@
+{{define "payment_page"}}
+<html>
+	<head>
+		<title>Hello World</title>
+
+		<link rel="stylesheet" href="/css/new.css" type="text/css">
+		<script type="text/javascript" src="/js/new.js"></script>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+
+		<div>
+			Example of Variables: {{ .Name }}
+		</div>
+
+		<div>
+			Example of Currency: Rp {{ Currency .TotalAmount }}
+		</div>
+
+		<div>
+			Example of calling another template: 
+			{{ CallTemplate "another_template" . }}
+		</div>
+
+		<div>
+			This is Example of Looping strings
+			<ul>
+				{{ range .ThisArray }}
+					<li>{{.}}</li>
+				{{ end }}
+			</ul>
+		</div>
+
+		<div>
+			This is Example of Object<br>
+			I Have a {{ .ThisObject.Animal }} and I named it {{ .ThisObject.Name }} and he has hobby to {{ .ThisObject.Hobby }}
+		</div>
+
+		<div>
+			This is Example of Conditional<br>
+			I and Alviani is {{ if .RelationFlag }}having{{ else }}not having{{ end }} relationship
+		</div>
+
+		<div>
+			This is Example of Looping Object
+			<table>
+				<tr>
+					<td>ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Relation</td>
+				</tr>
+				{{ range .ArrayOfObjects }}
+					<tr>
+						<td>{{ .ID }}</td>
+						<td>{{ .Name }}</td>
+						<td>{{ .Age }}</td>
+						<td>{{ if .Flag }}Married{{ else }}Single{{ end }}</td>
+					</tr>
+				{{ end }}
+			</table>
+		</div>
+
+		<div>
+			This is example of Input Parameter: {{ .Input }}
+		</div>
+
+		<div class="get-code">
+			Example of CSS defined Element
+		</div>
+
+		<div>
+			Example of Javascript defined Element
+			<button onclick="dothis()">Click Here</button>
+		</div>
+	</body>
+</html>
+{{ end }}
